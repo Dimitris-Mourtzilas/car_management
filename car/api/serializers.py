@@ -8,4 +8,4 @@ class CarSerializer(ModelSerializer):
 
     class Meta:
         model = Car
-        fields = ['model','price']
+        fields = '__all__'

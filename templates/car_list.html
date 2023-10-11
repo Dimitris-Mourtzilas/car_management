@@ -9,21 +9,36 @@
 {% block content %}
     {% if cars %}
     <table class="table">
+    <thead>
+    <tr>
+        <th>
+            Model
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Action(s)
+        </th>
+    </tr>
+    </thead>
     <tbody>
     {% for car in cars %}
         <tr>
     <td>
-        {{ car.model }}
+        <a href="{% url 'car_detail' car.id %}" class="btn-link" >{{ car.model }}</a>
     </td>
             <td>
         {{car.price }}
     </td>
         <td>
-            <a href="{% url 'update_car'  car.id %}" class="btn btn-primary">Update</a>
+            <a href="{% url 'update_car'  car.id %}" class="btn btn-secondary">Update</a>
+            <a href="{% url 'delete_car' car.id %}" class="btn btn-secondary">Delete</a>
         </td>
         </tr>
     {% endfor %}
     </tbody>
     </table>
     {% endif %}
+    <a href="{% url 'create_car'%}" class="btn btn-primary">Add new car</a>
 {% endblock %}

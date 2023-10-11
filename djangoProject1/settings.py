@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'car.apps.CarConfig',
     'bootstrap5',
-    'crispy_forms',
     'crispy_bootstrap5',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoProject1.wsgi.application'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 

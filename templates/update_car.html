@@ -2,13 +2,16 @@
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 {% block title %}
-Update form
+<title>
+Car update
+</title>
 {% endblock %}
 
 {%  block content %}
     <form method="post">
     {% csrf_token %}
-        {{ form | crispy }}
-    <button type="submit" class="btn btn-primary">Update car</button>
+        {{ form|crispy}}
+
+        <button type="submit" class="btn btn-primary">Update car</button>
     </form>
 {% endblock %}

@@ -19,7 +19,7 @@ from django.urls import path, include
 
 from car.api import views
 from car.api.views import CarRetrieveUpdateView
-from car.views import index, list_cars, create_car, update_car
+from car.views import index, list_cars, create_car, update_car, car_detail, delete_car
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,8 @@ urlpatterns = [
     path('list-cars',list_cars,name="list_cars"),
     path('create-car',create_car,name='create_car'),
     path('update-car/<int:id>',update_car,name='update_car'),
+    path('car/details/<int:pk>',car_detail,name="car_detail"),
+    path('car/delete/<int:pk>',delete_car,name="delete_car"),
     path('api',views.CarViewSet.as_view(),name='cars'),
     path('api/<int:pk>',CarRetrieveUpdateView.as_view(),name="crud_car"),
 ]
