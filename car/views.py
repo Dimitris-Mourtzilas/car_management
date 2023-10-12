@@ -5,14 +5,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Create your views here.
 from car.forms import CarForm
 from car.models import Car
-
+from django.core.paginator import  Paginator
 
 def index(request):
     return render(request,'home.html')
 
 def list_cars(request):
     cars = Car.objects.all()
-    return render(request,'car_list.html',{'cars':cars})
+    paginator = Paginator(cars,3)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    return render(request,'car_list.html',{'cars':cars,'page_obj':page_obj})
 
 def create_car(request):
     if request.method == "POST":
